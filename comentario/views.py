@@ -19,7 +19,7 @@ def comentar(request):
                 
                 )
 # salvar os dados no banco de dados
-def gravar(request):     
+def armazenar(request):     
     novo_comentario = Comentario()
     novo_comentario.id_comentario = request.POST.get('id_comentario')
     novo_comentario.nome = request.POST.get('nome')

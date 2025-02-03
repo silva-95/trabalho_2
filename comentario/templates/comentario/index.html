@@ -4,7 +4,7 @@
 
 <div class="container">
   <h1> Comentario</h1>
-    <form action="{% url 'gravar' %}" method="post">
+    <form action="{% url 'armazenar' %}" method="post">
       {% csrf_token %}
     <label for="nome">Nome</label>
     <input type="text" name="nome" class="form-control">
