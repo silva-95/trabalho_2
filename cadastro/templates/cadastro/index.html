@@ -1,0 +1,41 @@
+{% extends "global/base.html" %}
+
+{% block texto %}
+<main class="container-fluid">
+    <section id="cadastro">
+      <form action="{% url 'gravar' %}" method="post">
+          {% csrf_token %}        
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <label for="nome">Nome: </label>
+            <input type="text" class="form-control" name="nome" maxlength="20" placeholder="Digite seu nome" required>
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="idade">Idade:</label>
+            <input type="text" class="form-control" name="idade" >
+          </div>
+        </div>
+
+
+        <label for="email">E-mail:</label>
+        <input type="email" class="form-control" name="email" >
+
+        <p></p><label for="telefone">Telefone:</label>
+        <input type="tel" name="telefone" id="telefone" class="form-control" placeholder="(DD) 9 9999-9999" 
+        pattern="^\d{2}\d{5}\d{4}$" inputmode="tel" autocomplete="tel-local" maxlength="11">       
+
+        <p></p><label>Sexo:</label>
+        <label for="sexo" class="form-check-label">M:</label>
+        <input type="radio" class="form-check-input" name="sexo" value="m">
+        <label for="sexo" class="form-check-label">F:</label>
+        <input type="radio" class="form-check-input" name="sexo" value="f"> 
+       
+
+        <p></p><input type="submit" value="Enviar" class="btn btn-success">
+        <input type="reset" value="Limpar" class="btn btn-danger">
+        
+      </form>
+    </section>
+  </main>
+
+{% endblock texto %}

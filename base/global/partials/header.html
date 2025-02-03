@@ -1,0 +1,37 @@
+<header>
+    <div class="content">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="{% url 'home' %}">Home</a>
+          <button class="navbar-toggler bg-white text-dark" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">                                                           
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Formulários
+                </a>
+                <ul class="dropdown-menu bg-dark">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'cadastro' %}">Cadastro</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'endereco' %}">Endereço</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'comentario' %}">Comentarios</a>
+                  </li>
+                  
+      </nav>
+      <div class="header-block">
+        <div class="text">
+          <h2>Encontre o carro perfeito para você</h2>
+          <p>A melhor seleção de carros novos e usados para todos os gostos e bolsos.</p>
+        </div>
+        <img src="/static/global/img/car-header.png" alt="Carro destaque" class="img-fluid">
+      </div>
+    </div>
+  </header>

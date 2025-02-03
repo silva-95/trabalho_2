@@ -1,0 +1,37 @@
+{% extends "global/base.html" %}
+
+{% block texto %}
+<main>
+    <section id="cep" class="container-fluid">
+        <!-- Inicio do formulario -->
+        <form  action="{% url 'adicionar' %}" method="post">
+            {% csrf_token %}
+            <label>Cep:
+                <input class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                    onblur="pesquisacep(this.value);" /></label><br />
+            <label>Rua:
+                <input readonly class="form-control" name="rua" type="text" id="rua" size="60" /></label><br />
+            <label>Numero:
+                <input class="form-control" name="num" type="text" id="num" size="10" /></label><br />
+            <label>Complemento:
+                <input class="form-control" name="comp" type="text" id="comp" size="60" /></label><br />
+            <label>Bairro:
+                <input readonly class="form-control" name="bairro" type="text" id="bairro"
+                    size="40" /></label><br />
+            <label>Cidade:
+                <input readonly class="form-control" name="cidade" type="text" id="cidade"
+                    size="40" /></label><br />
+            <label>Estado:
+                <input  class="form-control" name="uf" type="text" id="uf" size="2" /></label><br />
+            <!-- <label>IBGE: -->
+                <input name="ibge" type="hidden" id="ibge" size="8" /></label><br /> 
+
+                <label>Pais:
+                    <input class="form-control" name="pais" type="text" id="pais"
+                        size="40" /></label><br /><p>                       
+                <button type="submit" class="btn btn-success">Salvar</button>
+        </form>
+      
+    </section>
+</main>
+{% endblock texto %}

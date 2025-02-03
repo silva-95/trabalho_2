@@ -1,0 +1,49 @@
+{% extends 'global/base.html' %}
+
+{% block texto %}
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Valor</th>                
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td>{{ produto.tema }}</td>
+                <td><img src="{{ produto.foto.url }}" class="img-fluid" width="100"></td>
+                <td>{{ produto.conteudo }}</td>                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Modal para exibir a descrição -->
+{% for produto in produtos %}
+<!-- Modal -->
+<div class="modal fade" id="descricaoModal{{ produto.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ produto.tema }}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            {{ produto.conteudo }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock texto %}
+ 

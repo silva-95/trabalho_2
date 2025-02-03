@@ -1,0 +1,117 @@
+{% extends 'global/base.html'%}
+{% block texto %}
+
+<section class="catalog" id="Catalogo">
+    <div class="content">
+        <div class="title-wrapper-catalog">           
+            <h3>Catálogo de Carros</h3>
+        </div>
+        <div class="filter-card">
+            <input type="text" id="search-input" class="search-input" placeholder="Pesquise por marca ou modelo">
+            <button class="search-button" onclick="searchCar()">Buscar</button>
+        </div>
+        <div class="card-wrapper">
+            <div class="card-item" data-name="Ford Mustang" data-link="https://www.ford.com/cars/mustang/">
+                <img src="/static/global/img/mustang.png" alt="Carro 1">
+                <div class="card-content">
+                    <h3>Ford Mustang</h3>
+                    <p>Esportivo de alto desempenho, ideal para quem busca potência e estilo.</p>
+                    <button type="button" onclick="window.open('https://www.ford.com/cars/mustang/', '_blank')">Veja Mais!</button>                    
+                </div>
+            </div>
+            <div class="card-item" data-name="Honda Civic" data-link="https://www.honda.com.br/automoveis/civic-typer">
+                <img src="/static/global/img/civic.png" alt="Carro 2">
+                <div class="card-content">
+                    <h3>Honda Civic</h3>
+                    <p>Conforto e tecnologia para a família, com excelente economia de combustível.</p>
+                    <button type="button" onclick="window.open('https://www.honda.com.br/automoveis/civic-typer', '_blank')">Veja Mais!</button>                    
+                </div>
+            </div>
+            <div class="card-item" data-name="Chevrolet Onix" data-link="https://www.chevrolet.com.br/carros/novo-onix">
+                <img src="/static/global/img/onix.png" alt="Carro 3">
+                <div class="card-content">
+                    <h3>Chevrolet Onix</h3>
+                    <p>O carro mais vendido do Brasil, perfeito para o dia a dia.</p>
+                    <button type="button" onclick="window.open('https://www.chevrolet.com.br/carros/novo-onix', '_blank')">Veja Mais!</button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function searchCar() {
+        const input = document.getElementById('search-input').value.toLowerCase();
+        const cards = document.querySelectorAll('.card-item');
+        let found = false;
+        
+        cards.forEach(card => {
+            const name = card.getAttribute('data-name').toLowerCase();
+            const link = card.getAttribute('data-link');
+
+            if (name.includes(input)) {
+                window.open(link, '_blank');
+                found = true;
+            }
+        });
+
+        if (!found) {
+            alert('Carro não encontrado.');
+        }
+    }
+</script>
+
+  <!-- Sobre -->
+  <section class="about" id="about">
+    <div class="content">
+      <div class="title-wrapper-about">        
+        <h3>Sobre a Loja</h3>
+        <p>Nossa missão é proporcionar a melhor experiência de compra para nossos clientes.</p>
+      </div>
+      <div class="about-content">
+        <div class="left">
+          <img src="/static/global/img/about.png" alt="Nossa equipe">
+        </div>
+        <div class="right">
+          <h3>Mais de 20 anos no mercado de veículos</h3>
+          <p>
+            Oferecemos carros novos e usados de qualidade, com garantia de procedência e o melhor atendimento do
+            mercado. Nossa missão é proporcionar a melhor experiência de compra para nossos clientes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destaques -->
+  <section class="features" id="features">
+    <div class="content">
+      <div class="title-wrapper-features">        
+        <h3>Destaques</h3>
+      </div>
+      <div class="feature-card-block">
+        <div class="feature-card-item">
+          <img src="/static/global/img/feature-planet.png" alt="Financiamento">
+          <div class="feature-text-content">
+            <h3>Financiamento</h3>
+            <p>Parcelas acessíveis e taxas competitivas.</p>
+          </div>
+        </div>
+        <div class="feature-card-item">
+          <img src="/static/global/img/feature-planet.png" alt="Garantia">
+          <div class="feature-text-content">
+            <h3>Garantia</h3>
+            <p>Oferecemos garantia de até 12 meses em veículos usados.</p>
+          </div>
+        </div>
+        <div class="feature-card-item">
+          <img src="/static/global/img/feature-planet.png" alt="Test Drive">
+          <div class="feature-text-content">
+            <h3>Test Drive</h3>
+            <p>Agende um test drive e experimente o carro dos seus sonhos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endblock texto %}
